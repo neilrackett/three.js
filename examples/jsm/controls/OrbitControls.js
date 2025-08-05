@@ -1461,6 +1461,8 @@ function onPointerDown( event ) {
 		this.domElement.addEventListener( 'pointermove', this._onPointerMove );
 		this.domElement.addEventListener( 'pointerup', this._onPointerUp );
 
+		document.addEventListener( 'pointerleave', this._onPointerUp );
+
 	}
 
 	//
@@ -1511,6 +1513,8 @@ function onPointerUp( event ) {
 
 			this.domElement.removeEventListener( 'pointermove', this._onPointerMove );
 			this.domElement.removeEventListener( 'pointerup', this._onPointerUp );
+
+			document.removeEventListener( 'pointerleave', this._onPointerUp );
 
 			this.dispatchEvent( _endEvent );
 
